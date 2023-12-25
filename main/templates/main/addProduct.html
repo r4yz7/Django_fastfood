@@ -1,0 +1,31 @@
+{% extends 'main/header.html' %}
+
+{% block title %}
+Додати
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center;">Додати продукт</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.productName.id_for_label }}">Назва</label>
+        {{ form.productName }}
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.description.id_for_label }}">Інгредієнти</label>
+        {{ form.description }}
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="{{ form.price.id_for_label }}">Ціна</label>
+        {{ form.price }}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="{{ photo_form.image.id_for_label }}">Фото</label>
+        {{ photo_form.image }}
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Додати</button>
+</form>
+{% endblock %}
